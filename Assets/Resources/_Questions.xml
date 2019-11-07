@@ -1,0 +1,141 @@
+<document>
+  
+  <question1>
+    <qns>Which of the following is NOT the core technology of OneConnect Financial Technology?</qns>
+    <picture></picture>
+    <choices>Biometrics|Artificial Intelligence|Blockchain|Wireless Networking</choices>
+    <answer>4</answer>
+	</question1>
+
+  <question2>
+    <qns>How accurate is OneConnect’s facial recognition technology?</qns>
+    <picture></picture>
+    <choices>9.98%|99.8%|0.998%|50%</choices>
+    <answer>2</answer>
+  </question2>
+
+  <question3>
+    <qns>Which of the following is not an application for biometric identification provided by OneConnect?</qns>
+    <picture></picture>
+    <choices>Digital onboarding|Fraud detection|Digital loan application|Visual search for improved product discoverability</choices>
+    <answer>4</answer>
+  </question3>
+
+  <question4>
+    <qns>Identify A.I. we use in daily life.</qns>
+    <picture></picture>
+    <choices>Social Media|Smart cars|Healthcare|All of the above</choices>
+    <answer>4</answer>
+  </question4>
+
+  <question5>
+    <qns>Which of the following feature is NOT offered by OneConnect facial recognition technology?</qns>
+    <picture></picture>
+    <choices>Facial Detection|Iris recognition|Liveness Detection|Facial Lookup</choices>
+    <answer>2</answer>
+  </question5>
+
+  <question6>
+    <qns>Which of the following statement about OneConnect Smart Auto Claims solution is true?</qns>
+    <picture></picture>
+    <choices>It allows 98.7% of the claims to be paid out in a day.|Damage assessment is done manually to recognize the part name and severity of damage.|It is a car insurance policy.|It can only reduce claim submission time but there’s no anti-leakage engines.</choices>
+    <answer>1</answer>
+  </question6>
+
+  <question7>
+    <qns>What does eKYC stand for?</qns>
+    <picture></picture>
+    <choices>Electronic Know your Computer|Electronic Know your Colleague|Electronic Know your Customer|Electronic Know your Company</choices>
+    <answer>3</answer>
+  </question7>
+
+  <question8>
+    <qns>Which country has the highest Fintech users?</qns>
+    <picture></picture>
+    <choices>China|India|Kenya|United States</choices>
+    <answer>1</answer>
+  </question8>
+
+  <question9>
+    <qns>What are the features of OneConnect Smart Lending Platform?</qns>
+    <picture></picture>
+    <choices>Anti-Fraud Engine|Digital Loan Application|Credit Risk Model|All of the above</choices>
+    <answer>4</answer>
+  </question9>
+
+  <question10>
+    <qns>Which of the following is not a feature of OneConnect Voice Recognition technology?</qns>
+    <picture></picture>
+    <choices>Quality voice extraction|Noise detection|Silence detection|Extract a relatively clear voice from a noisy audio file</choices>
+    <answer>4</answer>
+  </question10>
+
+  <question11>
+    <qns>Which of the following statements about OneConnect Voice Recognition is true?</qns>
+    <picture></picture>
+    <choices>It is associated with long waiting times and lengthy verification.|It can authenticate a person’s identity within 10 seconds of talk time.|Voiceprints can be impersonated or replicated.|It is not language agnostic.</choices>
+    <answer>2</answer>
+  </question11>
+
+  <question12>
+    <qns>An expert system that can allow “if-then” rules is likely an example of:</qns>
+    <picture></picture>
+    <choices>Artificial intelligence|Supervised learning|Unsupervised learning|Reinforcement learning</choices>
+    <answer>1</answer>
+  </question12>
+
+  <question13>
+    <qns>Which of the following is inspired by the working of the human brain?</qns>
+    <choices>Artificial intelligence|Unsupervised learning|Deep learning|Supervised learning</choices>
+    <answer>3</answer>
+  </question13>
+
+  <question14>
+    <qns>What does the block in the blockchain consist of?</qns>
+    <picture></picture>
+    <choices>Transaction data|A timestamp|A hashpoint|All of the above</choices>
+    <answer>4</answer>
+  </question14>
+
+  <question15>
+    <qns>Which of the following is NOT a benefit of OneConnect Smart Agent?</qns>
+    <picture></picture>
+    <choices>Lead management tool to unify customer information across channels to provide agents a holistic view of customers.|Digital onboarding solution which is proven to speed up 5x the process and reduce 3x operational costs.|Productivity tool to increase agent productivity by automating manual and repetitive administrative tasks.|It can only support small volume of agents.</choices>
+    <answer>4</answer>
+  </question15>
+
+  <question16>
+    <qns>The set of technology-based business and financing processes that link buyer, seller, and financing institution in a transaction to lower financing costs and improvebusiness efficiency is?</qns>
+    <picture></picture>
+    <choices>Supply Chain Financing|Manufacturing Value Chain|Digital Supply Chain|Value Chain Analysis</choices>
+    <answer>1</answer>
+  </question16>
+
+  <question17>
+    <qns>Which of the following statement about OneConnect’s Micro-Expression technology is correct?</qns>
+    <picture></picture>
+    <choices>Leveraging the AI-powered sentiment analysis, it is used in reviewing loan applications to analyze fraud-related facial expression such as panic.|It supports a rule-based real-time dynamic questioning strategy based on the responses of the interviewee.|It can be used for interviews for loan applications, allowing banks to remotely assess lending risk where they do not have a physical presence.|All of the above</choices>
+    <answer>4</answer>
+  </question17>
+
+  <question18>
+    <qns>Which of the following solutions is Not offered in OneConnect Digital Bank-In-A-Box?</qns>
+    <picture></picture>
+    <choices>Cloud-based core system|Smart Lending|Open API Platform|ATM machine</choices>
+    <answer>4</answer>
+  </question18>
+
+  <question19>
+    <qns>What does OCR stand for?</qns>
+    <picture></picture>
+    <choices>Optical camera reader|Opaque character recognition|Optical character recognition|Oblique character reconnaissance</choices>
+    <answer>3</answer>
+  </question19>
+
+  <question20>
+    <qns>Which of the following is not a feature of OneConnect eKYC?</qns>
+    <picture></picture>
+    <choices>Facial recognition|Liveness recognition|Object recognition|Document verification and authentication</choices>
+    <answer>3</answer>
+  </question20>
+</document>
