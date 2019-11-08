@@ -29,4 +29,9 @@ public class StartPageHandler : MonoBehaviour
         startPage.SetActive(false);
         SubjectStartHandler.singleton.mathStartDisplay();
     }
+
+    public void skipVideo()
+    {
+        StreamVideo.singleton.videoSkip();
+    }
 }

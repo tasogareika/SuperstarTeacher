@@ -1,141 +1,143 @@
 <document>
   
   <question1>
-    <qns>Which of the following is NOT the core technology of OneConnect Financial Technology?</qns>
-    <picture></picture>
-    <choices>Biometrics|Artificial Intelligence|Blockchain|Wireless Networking</choices>
-    <answer>4</answer>
+    <qns>Which of the following is likely to be the mass of a chicken egg?</qns>
+    <picture>1</picture>
+    <choices>8 g|8 kg|80 g|80 kg</choices>
+    <answer>3</answer>
 	</question1>
 
   <question2>
-    <qns>How accurate is OneConnect’s facial recognition technology?</qns>
-    <picture></picture>
-    <choices>9.98%|99.8%|0.998%|50%</choices>
-    <answer>2</answer>
+    <qns>Which of the following is the most likely mass of a new toilet paper roll?</qns>
+    <picture>2</picture>
+    <choices>1 kg|10 g|10 kg|100 g</choices>
+    <answer>4</answer>
   </question2>
 
   <question3>
-    <qns>Which of the following is not an application for biometric identification provided by OneConnect?</qns>
-    <picture></picture>
-    <choices>Digital onboarding|Fraud detection|Digital loan application|Visual search for improved product discoverability</choices>
-    <answer>4</answer>
+    <qns>Which number is the odd one out? </qns>
+    <picture>3</picture>
+    <choices>11|13|16|19</choices>
+    <answer>3</answer>
   </question3>
 
   <question4>
-    <qns>Identify A.I. we use in daily life.</qns>
-    <picture></picture>
-    <choices>Social Media|Smart cars|Healthcare|All of the above</choices>
-    <answer>4</answer>
+    <qns>Which is the odd one out? </qns>
+    <picture>4</picture>
+    <choices>8|11|16|19</choices>
+    <answer>1</answer>
   </question4>
 
   <question5>
-    <qns>Which of the following feature is NOT offered by OneConnect facial recognition technology?</qns>
-    <picture></picture>
-    <choices>Facial Detection|Iris recognition|Liveness Detection|Facial Lookup</choices>
+    <qns>Clara is the 2nd from the back and 5th from the front. How many people are there in the line?</qns>
+    <picture>5</picture>
+    <choices>5|6|7|8</choices>
     <answer>2</answer>
   </question5>
 
   <question6>
-    <qns>Which of the following statement about OneConnect Smart Auto Claims solution is true?</qns>
-    <picture></picture>
-    <choices>It allows 98.7% of the claims to be paid out in a day.|Damage assessment is done manually to recognize the part name and severity of damage.|It is a car insurance policy.|It can only reduce claim submission time but there’s no anti-leakage engines.</choices>
-    <answer>1</answer>
+    <qns>In a queue, Helen is in the 6th position. If Jack is standing just behind Helen and is 3rd from last, how many people are there in the queue?</qns>
+    <picture>6</picture>
+    <choices>7|8|9|10</choices>
+    <answer>3</answer>
   </question6>
 
   <question7>
-    <qns>What does eKYC stand for?</qns>
-    <picture></picture>
-    <choices>Electronic Know your Computer|Electronic Know your Colleague|Electronic Know your Customer|Electronic Know your Company</choices>
-    <answer>3</answer>
+    <qns>What is the value of □?</qns>
+    <picture>7</picture>
+    <choices>3|5|7|9</choices>
+    <answer>4</answer>
   </question7>
 
   <question8>
-    <qns>Which country has the highest Fintech users?</qns>
-    <picture></picture>
-    <choices>China|India|Kenya|United States</choices>
-    <answer>1</answer>
+    <qns>What is the value of ☆?</qns>
+    <picture>8</picture>
+    <choices>13|17|25|29</choices>
+    <answer>2</answer>
   </question8>
 
   <question9>
-    <qns>What are the features of OneConnect Smart Lending Platform?</qns>
-    <picture></picture>
-    <choices>Anti-Fraud Engine|Digital Loan Application|Credit Risk Model|All of the above</choices>
-    <answer>4</answer>
+    <qns>What is the missing number in the following number pattern?</qns>
+    <picture>9</picture>
+    <choices>7|9|11|13</choices>
+    <answer>3</answer>
   </question9>
 
   <question10>
-    <qns>Which of the following is not a feature of OneConnect Voice Recognition technology?</qns>
-    <picture></picture>
-    <choices>Quality voice extraction|Noise detection|Silence detection|Extract a relatively clear voice from a noisy audio file</choices>
+    <qns>What is the missing number in the number pattern?</qns>
+    <picture>10</picture>
+    <choices>10|7|6|4</choices>
     <answer>4</answer>
   </question10>
 
   <question11>
-    <qns>Which of the following statements about OneConnect Voice Recognition is true?</qns>
-    <picture></picture>
-    <choices>It is associated with long waiting times and lengthy verification.|It can authenticate a person’s identity within 10 seconds of talk time.|Voiceprints can be impersonated or replicated.|It is not language agnostic.</choices>
-    <answer>2</answer>
+    <qns>What is the missing number?</qns>
+    <picture>11</picture>
+    <choices>4|7|14|16</choices>
+    <answer>1</answer>
   </question11>
 
   <question12>
-    <qns>An expert system that can allow “if-then” rules is likely an example of:</qns>
-    <picture></picture>
-    <choices>Artificial intelligence|Supervised learning|Unsupervised learning|Reinforcement learning</choices>
-    <answer>1</answer>
+    <qns>What is the missing number?</qns>
+    <picture>12</picture>
+    <choices>3|4|6|12</choices>
+    <answer>3</answer>
   </question12>
 
   <question13>
-    <qns>Which of the following is inspired by the working of the human brain?</qns>
-    <choices>Artificial intelligence|Unsupervised learning|Deep learning|Supervised learning</choices>
-    <answer>3</answer>
+    <qns>How many squares are there?</qns>
+    <picture>13</picture>
+    <choices>9|10|13|14</choices>
+    <answer>4</answer>
   </question13>
 
   <question14>
-    <qns>What does the block in the blockchain consist of?</qns>
-    <picture></picture>
-    <choices>Transaction data|A timestamp|A hashpoint|All of the above</choices>
-    <answer>4</answer>
+    <qns>Which figure is the odd one out?</qns>
+    <picture>14</picture>
+    <choices>A|B|C|D</choices>
+    <answer>2</answer>
   </question14>
 
   <question15>
-    <qns>Which of the following is NOT a benefit of OneConnect Smart Agent?</qns>
-    <picture></picture>
-    <choices>Lead management tool to unify customer information across channels to provide agents a holistic view of customers.|Digital onboarding solution which is proven to speed up 5x the process and reduce 3x operational costs.|Productivity tool to increase agent productivity by automating manual and repetitive administrative tasks.|It can only support small volume of agents.</choices>
-    <answer>4</answer>
+    <qns>Which figure is the odd one out?</qns>
+    <picture>15</picture>
+    <choices>A|B|C|D</choices>
+    <answer>2</answer>
   </question15>
 
   <question16>
-    <qns>The set of technology-based business and financing processes that link buyer, seller, and financing institution in a transaction to lower financing costs and improvebusiness efficiency is?</qns>
-    <picture></picture>
-    <choices>Supply Chain Financing|Manufacturing Value Chain|Digital Supply Chain|Value Chain Analysis</choices>
-    <answer>1</answer>
+    <qns>Which string is the longest?</qns>
+    <picture>16</picture>
+    <choices>A|B|C|D</choices>
+    <answer>3</answer>
   </question16>
 
   <question17>
-    <qns>Which of the following statement about OneConnect’s Micro-Expression technology is correct?</qns>
+    <qns>Which penguin is the shortest?</qns>
     <picture></picture>
-    <choices>Leveraging the AI-powered sentiment analysis, it is used in reviewing loan applications to analyze fraud-related facial expression such as panic.|It supports a rule-based real-time dynamic questioning strategy based on the responses of the interviewee.|It can be used for interviews for loan applications, allowing banks to remotely assess lending risk where they do not have a physical presence.|All of the above</choices>
-    <answer>4</answer>
+    <choices>A|B|C|D</choices>
+    <answer>2</answer>
   </question17>
 
   <question18>
-    <qns>Which of the following solutions is Not offered in OneConnect Digital Bank-In-A-Box?</qns>
+    <qns>What is the missing number?</qns>
     <picture></picture>
-    <choices>Cloud-based core system|Smart Lending|Open API Platform|ATM machine</choices>
-    <answer>4</answer>
+    <choices>2|3|4|5</choices>
+    <answer>1</answer>
   </question18>
 
   <question19>
-    <qns>What does OCR stand for?</qns>
+    <qns>What is the missing value of the brick?</qns>
     <picture></picture>
-    <choices>Optical camera reader|Opaque character recognition|Optical character recognition|Oblique character reconnaissance</choices>
-    <answer>3</answer>
+    <choices>1|3|7|21</choices>
+    <answer>4</answer>
   </question19>
 
   <question20>
-    <qns>Which of the following is not a feature of OneConnect eKYC?</qns>
+    <qns>What is the missing number?</qns>
     <picture></picture>
-    <choices>Facial recognition|Liveness recognition|Object recognition|Document verification and authentication</choices>
-    <answer>3</answer>
+    <choices>1|2|3|4</choices>
+    <answer>4</answer>
   </question20>
+  
 </document>

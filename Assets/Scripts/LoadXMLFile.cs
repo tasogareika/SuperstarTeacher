@@ -15,13 +15,19 @@ public class LoadXMLFile : MonoBehaviour {
         singleton = this;
     }
 
-    void Start()
+    public void changeXML(string quizType)
     {
-        //in future: figure out external xml load?
-        /*AssetDatabase.ImportAsset(Application.dataPath + "/Resources/_Quetions.xml");
-        questionsXML = (TextAsset)Resources.Load("_Questions");*/
+        switch (quizType)
+        {
+            case "math":
+                questionsXML = (TextAsset)Resources.Load("_Questions");
+                break;
 
-        questionsXML = (TextAsset)Resources.Load("_Questions");
+            case "english":
+                questionsXML = (TextAsset)Resources.Load("_Questions2");
+                break;
+        }
+
         xmlRawFile = questionsXML;
         data = xmlRawFile.text;
     }

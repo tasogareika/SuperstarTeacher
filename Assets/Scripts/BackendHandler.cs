@@ -25,11 +25,13 @@ public class BackendHandler : MonoBehaviour
     public void startGame()
     {
         StartPageHandler.singleton.playVideo();
+        LoadXMLFile.singleton.changeXML("math");
         mainButton.SetActive(false);
     }
 
     public void beginQuiz()
     {
+        mainButton.SetActive(false);
         SubjectStartHandler.singleton.subjectStartPage.SetActive(false);
         QuestionHandler.singleton.quizPage.SetActive(true);
         QuestionHandler.singleton.beginQuiz();
@@ -50,5 +52,7 @@ public class BackendHandler : MonoBehaviour
                 mainButton.GetComponent<Button>().onClick.AddListener(delegate { beginQuiz(); });
                 break;
         }
+
+        mainButton.SetActive(true);
     }
 }

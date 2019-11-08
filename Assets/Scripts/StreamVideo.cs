@@ -32,8 +32,8 @@ public class StreamVideo : MonoBehaviour
 
         if (!videoPlayer.isPlaying && hasPlayed)
         {
-            StartPageHandler.singleton.videoEnd();
             hasPlayed = false;
+            StartPageHandler.singleton.videoEnd();
         }
     }
 
@@ -49,5 +49,11 @@ public class StreamVideo : MonoBehaviour
         rawImage.texture = videoPlayer.texture;
         videoPlayer.Play();
         audioSource.Play();
+    }
+
+    public void videoSkip()
+    {
+        videoPlayer.Stop();
+        audioSource.Stop();
     }
 }

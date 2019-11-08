@@ -551,12 +551,12 @@ GameObject:
   - component: {fileID: 142206442}
   - component: {fileID: 142206441}
   m_Layer: 5
-  m_Name: MathPage
+  m_Name: SubjectPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &142206440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -744,6 +744,80 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 288255590}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &293587004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293587005}
+  - component: {fileID: 293587007}
+  - component: {fileID: 293587006}
+  m_Layer: 5
+  m_Name: DisplayImg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &293587005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293587004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1444010296}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &293587006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293587004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &293587007
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293587004}
+  m_CullTransparentMesh: 0
 --- !u!1 &352967081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1228,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: ENGLISH
+  m_text: MATH
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1231,11 +1305,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -1334,7 +1408,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 610891134}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2130449687}
+        m_MethodName: skipVideo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &610891134
@@ -2551,7 +2636,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 293587005}
   m_Father: {fileID: 1652996276}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2573,7 +2659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2730,7 +2816,7 @@ MonoBehaviour:
   subjectDisplay: {fileID: 568436085}
   questionDisplay: {fileID: 2019868591}
   scoreDisplay: {fileID: 352967083}
-  pictureDisplay: {fileID: 1444010297}
+  pictureDisplay: {fileID: 293587006}
 --- !u!114 &1652996278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4058,6 +4144,7 @@ GameObject:
   - component: {fileID: 2130449684}
   - component: {fileID: 2130449686}
   - component: {fileID: 2130449685}
+  - component: {fileID: 2130449689}
   m_Layer: 0
   m_Name: Script Handler
   m_TagString: Untagged
@@ -4130,6 +4217,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quizPage: {fileID: 2071345627}
+  mathPictures:
+  - {fileID: 21300000, guid: 02e8fdddf9c36cf41bc1d90d45fe927e, type: 3}
+  - {fileID: 21300000, guid: 82446fa8fe4d1fe448af955006572d32, type: 3}
+  - {fileID: 21300000, guid: c6a50110313fae74aa5a851900f02089, type: 3}
+  - {fileID: 21300000, guid: 4098d2f251c5399439b70b9bd35c5b61, type: 3}
+  - {fileID: 21300000, guid: 5d698a63d63b28445958b552d6388d3d, type: 3}
+  - {fileID: 21300000, guid: 0377242b6135abf458313ab20b54c73d, type: 3}
+  - {fileID: 21300000, guid: b9b0f901d02417b49b5ccca8ca6c7567, type: 3}
+  - {fileID: 21300000, guid: e1615c4a8a48cbe42919732f70c3e0b6, type: 3}
+  - {fileID: 21300000, guid: 606270f8e8506b041baa00d74c0072a0, type: 3}
+  - {fileID: 21300000, guid: e31ee105f156a084eabe4a096ebc800a, type: 3}
+  - {fileID: 21300000, guid: f7c2468fb17e7c248a5dcc02ef7d2a6c, type: 3}
+  - {fileID: 21300000, guid: a623b9c1dfd2cf14cbf2e78b053fa134, type: 3}
+  - {fileID: 21300000, guid: 9075d71458d1fe744990aad064cd9f39, type: 3}
+  - {fileID: 21300000, guid: 9ac05e8704a5da2478c14e8799ea392b, type: 3}
+  - {fileID: 21300000, guid: fa7529ec60ece5443bd0f52f56041497, type: 3}
+  - {fileID: 21300000, guid: 806edfbb35c7cb541b0e001e668340d3, type: 3}
+  - {fileID: 21300000, guid: c1942393ae9c4444f99f1ddea2c3bf68, type: 3}
+  - {fileID: 21300000, guid: 43b33c063dfc4ea49a2877c7fa1af513, type: 3}
+  - {fileID: 21300000, guid: ed03ee300268fcb44977f1b770c257c4, type: 3}
+  - {fileID: 21300000, guid: 0667110a23f18cb42bd3a6abebe7d98a, type: 3}
   questionBoxWords: {fileID: 1681424854}
   questionBoxPicture: {fileID: 1652996275}
   timeBar: {fileID: 12677949}
@@ -4162,7 +4270,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currSubject: 0
-  mainButton: {fileID: 0}
+  mainButton: {fileID: 64238625}
+--- !u!114 &2130449689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130449682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3fc01c8fbbbaf448a415874be17fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subjectStartPage: {fileID: 142206439}
+  mathStart: {fileID: 21300000, guid: 8e93a0ca139b3324db48395e6b743792, type: 3}
+  englishStart: {fileID: 0}
 --- !u!1 &2145935483
 GameObject:
   m_ObjectHideFlags: 0
