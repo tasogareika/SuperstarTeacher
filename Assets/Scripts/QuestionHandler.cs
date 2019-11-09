@@ -20,7 +20,7 @@ public class QuestionHandler : MonoBehaviour
     private int currQn, totalQns, questionNo, realAns, score;
     private float maxTimer, currTimer;
     private GameObject questionBox;
-    private bool timerRun;
+    public bool timerRun;
 
     private void Awake()
     {
@@ -143,6 +143,26 @@ public class QuestionHandler : MonoBehaviour
         timerRun = true;
     }
 
+    public void answerToggle(bool correct) //trigged when user presses a button to answer
+    {
+        if (correct)
+        {
+            Debug.Log("correct answer");
+            score++;
+            questionBox.GetComponent<QuestionBoxHandler>().scoreDisplay.text = score.ToString();
+        }
+
+        if (currQn != totalQns)
+        {
+            TargetSpawners.singleton.spawnTargets();
+            nextQuestion();
+        }
+        else
+        {
+            endQuiz(true);
+        }
+    }
+
     private void Update()
     {
         if (timerRun)
@@ -156,7 +176,23 @@ public class QuestionHandler : MonoBehaviour
             {
                 //time's up
                 timerRun = false;
+                endQuiz(false);
             }
+        }
+    }
+
+    private void endQuiz(bool complete) //end of quiz
+    {
+        timerRun = false;
+        quizPage.SetActive(false);
+
+        switch (BackendHandler.singleton.currSubject)
+        {
+            case BackendHandler.SUBJECTS.MATH:
+                break;
+
+            case BackendHandler.SUBJECTS.ENGLISH:
+                break;
         }
     }
 }

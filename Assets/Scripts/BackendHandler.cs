@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BackendHandler : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BackendHandler : MonoBehaviour
     public enum SUBJECTS { MATH, ENGLISH };
     public SUBJECTS currSubject;
     public GameObject mainButton;
+    private int clickNo;
+    private float clickTime, clickDelay;
 
     private void Awake()
     {
@@ -18,8 +21,31 @@ public class BackendHandler : MonoBehaviour
 
     private void Start()
     {
+        clickNo = 0;
+        clickDelay = 0.5f;
         currSubject = SUBJECTS.MATH;
         SetButtonFunction("startGame");
+    }
+
+    //ref: https://forum.unity.com/threads/detect-double-click-on-something-what-is-the-best-way.476759/
+    public void doubleClick()
+    {
+        clickNo++;
+        if (clickNo == 1)
+        {
+            clickTime = Time.time;
+        }
+
+        if (clickNo > 1 && Time.time - clickTime < clickDelay)
+        {
+            clickNo = 0;
+            clickTime = 0;
+            SceneManager.LoadScene(0);
+        }
+        else if (clickNo > 2 || Time.time - clickTime > 1)
+        {
+            clickNo = 0;
+        }
     }
 
     public void startGame()
