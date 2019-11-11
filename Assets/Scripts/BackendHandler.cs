@@ -11,7 +11,9 @@ public class BackendHandler : MonoBehaviour
     public enum SUBJECTS { MATH, ENGLISH };
     public SUBJECTS currSubject;
     public GameObject mainButton;
-    private int clickNo;
+    [SerializeField] private GameObject countdownDisplay;
+    public List<Sprite> buttonText, countdownImg;
+    private int clickNo, countdownNo;
     private float clickTime, clickDelay;
 
     private void Awake()
@@ -24,6 +26,7 @@ public class BackendHandler : MonoBehaviour
         clickNo = 0;
         clickDelay = 0.5f;
         currSubject = SUBJECTS.MATH;
+        countdownDisplay.transform.parent.gameObject.SetActive(false);
         SetButtonFunction("startGame");
     }
 
@@ -55,10 +58,50 @@ public class BackendHandler : MonoBehaviour
         mainButton.SetActive(false);
     }
 
+    public void startCountdown()
+    {
+        SubjectStartHandler.singleton.subjectStartPage.SetActive(false);
+        countdownNo = 4;
+        countdownDisplay.GetComponent<Image>().sprite = countdownImg[countdownNo];
+        countdownDisplay.transform.parent.gameObject.SetActive(true);
+        mainButton.SetActive(false);
+        StartCoroutine(countLoop(1.6f));
+    }
+
+    private void toggleCountdown()
+    {
+        if (countdownNo > 1)
+        {
+            countdownNo--;
+            countdownDisplay.GetComponent<Image>().sprite = countdownImg[countdownNo];
+            //countdown.GetComponent<Animator>().Play("Countdown");
+            StartCoroutine(countLoop(1.6f));
+        }
+        else
+        {
+            //countdown.GetComponent<Animator>().Play("CountStart");
+            beginQuiz();
+        }
+    }
+
+    private IEnumerator countLoop(float waitTime)
+    {
+        if (countdownNo > 1)
+        {
+            //playCountdownBeep();
+        }
+        else
+        {
+            //playCountdownLast();
+        }
+
+        yield return new WaitForSeconds(waitTime);
+        toggleCountdown();
+    }
+
     public void beginQuiz()
     {
-        mainButton.SetActive(false);
-        SubjectStartHandler.singleton.subjectStartPage.SetActive(false);
+        countdownDisplay.transform.parent.gameObject.SetActive(false);
         QuestionHandler.singleton.quizPage.SetActive(true);
         QuestionHandler.singleton.beginQuiz();
     }
@@ -69,13 +112,15 @@ public class BackendHandler : MonoBehaviour
         switch (pageType)
         {
             case "startGame":
-                mainButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Start Game";
+                mainButton.transform.GetChild(0).GetComponent<Image>().sprite = buttonText[0];
+                mainButton.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(700, 72);
                 mainButton.GetComponent<Button>().onClick.AddListener(delegate { startGame(); });
                 break;
 
             case "mathStart":
-                mainButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Move to Math";
-                mainButton.GetComponent<Button>().onClick.AddListener(delegate { beginQuiz(); });
+                mainButton.transform.GetChild(0).GetComponent<Image>().sprite = buttonText[1];
+                mainButton.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
+                mainButton.GetComponent<Button>().onClick.AddListener(delegate { startCountdown(); });
                 break;
         }
 

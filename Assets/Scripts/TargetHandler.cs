@@ -14,16 +14,18 @@ public class TargetHandler : MonoBehaviour
         QuestionHandler.singleton.timerRun = false;
         if (answer)
         {
+            GetComponent<Image>().sprite = correctImg;
             //BackendHandler.singleton.playCorrectAns();
             StartCoroutine(nextQuestion(0.5f));
         }
         else
         {
-           // QuestionHandler.singleton.showCorrectAnswer();
-           // BackendHandler.singleton.playWrongAns();
-            StartCoroutine(nextQuestion(2f));
+            GetComponent<Image>().sprite = wrongImg;
+            QuestionHandler.singleton.showCorrectAnswer();
+           //BackendHandler.singleton.playWrongAns();
+           StartCoroutine(nextQuestion(2f));
         }
-        //QuestionHandler.singleton.closeButtons();
+        QuestionHandler.singleton.closeButtons();
     }
 
     public void resetImage()

@@ -163,6 +163,26 @@ public class QuestionHandler : MonoBehaviour
         }
     }
 
+    public void closeButtons() //disable buttons to prevent double responses to a question
+    {
+        foreach (var b in TargetSpawners.singleton.targetList)
+        {
+            b.GetComponent<Button>().interactable = false;
+        }
+    }
+
+    public void showCorrectAnswer() //shows correct ans when user picks the wrong one
+    {
+        foreach (var b in TargetSpawners.singleton.targetList)
+        {
+            if (b.GetComponent<TargetHandler>().answer)
+            {
+                b.GetComponent<Image>().sprite = b.GetComponent<TargetHandler>().correctImg;
+                b.GetComponent<TargetHandler>().resetImage();
+            }
+        }
+    }
+
     private void Update()
     {
         if (timerRun)
