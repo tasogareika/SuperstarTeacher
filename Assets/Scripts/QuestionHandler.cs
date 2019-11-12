@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class QuestionHandler : MonoBehaviour
 {
     public static QuestionHandler singleton;
-    public static int totalScore;
     public GameObject quizPage;
     public List<Sprite> mathPictures;
     [SerializeField] private GameObject questionBoxWords, questionBoxPicture;
     [SerializeField] private Slider timeBar;
+    [SerializeField] private Image timerBarDisplay;
+    [SerializeField] private Sprite mathTimerBar, engTimerBar;
     [SerializeField] private TextMeshProUGUI currQuestionNo, totalQuestions;
     private List<int> questionPool;
     private List<GameObject> targetChoices;
@@ -30,7 +31,6 @@ public class QuestionHandler : MonoBehaviour
     private void Start()
     {
         maxTimer = 30;
-        totalScore = 0;
         questionPool = new List<int>();
         targetChoices = new List<GameObject>();
         choicesRef = new Dictionary<int, string>();
@@ -46,12 +46,14 @@ public class QuestionHandler : MonoBehaviour
                 questionBoxWords.SetActive(true);
                 questionBoxPicture.SetActive(false);
                 questionBox = questionBoxWords;
+                timerBarDisplay.sprite = engTimerBar;
                 break;
 
             case BackendHandler.SUBJECTS.MATH:
                 questionBoxWords.SetActive(false);
                 questionBoxPicture.SetActive(true);
                 questionBox = questionBoxPicture;
+                timerBarDisplay.sprite = mathTimerBar;
                 break;
         }
 
@@ -205,13 +207,20 @@ public class QuestionHandler : MonoBehaviour
     {
         timerRun = false;
         quizPage.SetActive(false);
+        questionPool.Clear();
+
+        BackendHandler.totalScore += score;
 
         switch (BackendHandler.singleton.currSubject)
         {
             case BackendHandler.SUBJECTS.MATH:
+                FinalPageHandler.singleton.mathScore.text = score.ToString();
+                SubjectStartHandler.singleton.englishStartDisplay();
                 break;
-
+                
             case BackendHandler.SUBJECTS.ENGLISH:
+                FinalPageHandler.singleton.englishScore.text = score.ToString();
+                FinalPageHandler.singleton.finalPageShow();
                 break;
         }
     }

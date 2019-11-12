@@ -14,6 +14,7 @@ public class StartPageHandler : MonoBehaviour
 
     private void Start()
     {
+        startPage.SetActive(true);
         videoPanel.SetActive(false);
     }
 

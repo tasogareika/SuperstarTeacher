@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class BackendHandler : MonoBehaviour
 {
+    public static int totalScore;
     public static BackendHandler singleton;
     public enum SUBJECTS { MATH, ENGLISH };
     public SUBJECTS currSubject;
@@ -26,6 +27,7 @@ public class BackendHandler : MonoBehaviour
         clickNo = 0;
         clickDelay = 0.5f;
         currSubject = SUBJECTS.MATH;
+        totalScore = 0;
         countdownDisplay.transform.parent.gameObject.SetActive(false);
         SetButtonFunction("startGame");
     }
@@ -119,6 +121,12 @@ public class BackendHandler : MonoBehaviour
 
             case "mathStart":
                 mainButton.transform.GetChild(0).GetComponent<Image>().sprite = buttonText[1];
+                mainButton.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
+                mainButton.GetComponent<Button>().onClick.AddListener(delegate { startCountdown(); });
+                break;
+
+            case "englishStart":
+                mainButton.transform.GetChild(0).GetComponent<Image>().sprite = buttonText[2];
                 mainButton.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
                 mainButton.GetComponent<Button>().onClick.AddListener(delegate { startCountdown(); });
                 break;

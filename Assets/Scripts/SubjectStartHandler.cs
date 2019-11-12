@@ -25,4 +25,13 @@ public class SubjectStartHandler : MonoBehaviour
         subjectStartPage.SetActive(true);
         BackendHandler.singleton.SetButtonFunction("mathStart");
     }
+
+    public void englishStartDisplay()
+    {
+        subjectStartPage.GetComponent<Image>().sprite = englishStart;
+        subjectStartPage.SetActive(true);
+        BackendHandler.singleton.currSubject = BackendHandler.SUBJECTS.ENGLISH;
+        LoadXMLFile.singleton.changeXML("english");
+        BackendHandler.singleton.SetButtonFunction("englishStart");
+    }
 }
