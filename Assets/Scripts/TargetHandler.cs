@@ -15,8 +15,9 @@ public class TargetHandler : MonoBehaviour
         if (answer)
         {
             GetComponent<Image>().sprite = correctImg;
+            QuestionHandler.singleton.correctResponse(this.gameObject);
             //BackendHandler.singleton.playCorrectAns();
-            StartCoroutine(nextQuestion(0.5f));
+            StartCoroutine(nextQuestion(1f));
         }
         else
         {

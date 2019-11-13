@@ -15,7 +15,8 @@ public class BackendHandler : MonoBehaviour
     [SerializeField] private GameObject countdownDisplay;
     public List<Sprite> buttonText, countdownImg;
     private int clickNo, countdownNo;
-    private float clickTime, clickDelay;
+    private float clickTime, clickDelay, time;
+    [HideInInspector] public Animator buttonAnimator, countDownAnimator;
 
     private void Awake()
     {
@@ -29,7 +30,8 @@ public class BackendHandler : MonoBehaviour
         currSubject = SUBJECTS.MATH;
         totalScore = 0;
         countdownDisplay.transform.parent.gameObject.SetActive(false);
-        SetButtonFunction("startGame");
+        buttonAnimator = mainButton.GetComponent<Animator>();
+        countDownAnimator = countdownDisplay.transform.parent.GetComponent<Animator>();
     }
 
     //ref: https://forum.unity.com/threads/detect-double-click-on-something-what-is-the-best-way.476759/
@@ -53,37 +55,61 @@ public class BackendHandler : MonoBehaviour
         }
     }
 
+    public void mainButtonShow()
+    {
+        buttonAnimator.enabled = true;
+        buttonAnimator.Play("MainButtonMove");
+    }
+
+    public void mainButtonReturn()
+    {
+        buttonAnimator.enabled = true;
+        buttonAnimator.Play("MainButtonMoveback");
+    }
+
     public void startGame()
     {
-        StartPageHandler.singleton.playVideo();
+        SetButtonFunction("clear");
+        StartPageHandler.singleton.shiftToVideo();
         LoadXMLFile.singleton.changeXML("math");
-        mainButton.SetActive(false);
+    }
+
+    private void shiftToCountDown()
+    {
+        SubjectStartHandler.singleton.moveToCountdown();
+        mainButtonShow();
+        countdownDisplay.transform.parent.gameObject.SetActive(true);
+        countDownAnimator.Play("CountdownAppear");
+        StartCoroutine(beginCountdown(getAnimTime(countDownAnimator) + 0.2f));
     }
 
     public void startCountdown()
     {
         SubjectStartHandler.singleton.subjectStartPage.SetActive(false);
         countdownNo = 4;
-        countdownDisplay.GetComponent<Image>().sprite = countdownImg[countdownNo];
-        countdownDisplay.transform.parent.gameObject.SetActive(true);
+        toggleCountdown();
         mainButton.SetActive(false);
-        StartCoroutine(countLoop(1.6f));
     }
 
     private void toggleCountdown()
     {
-        if (countdownNo > 1)
+        if (countdownNo >= 1)
         {
             countdownNo--;
             countdownDisplay.GetComponent<Image>().sprite = countdownImg[countdownNo];
-            //countdown.GetComponent<Animator>().Play("Countdown");
-            StartCoroutine(countLoop(1.6f));
+            countDownAnimator.Play("Countdown");
+            StartCoroutine(countLoop(1.5f));
         }
         else
         {
-            //countdown.GetComponent<Animator>().Play("CountStart");
             beginQuiz();
         }
+    }
+
+    private IEnumerator beginCountdown (float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        startCountdown();
     }
 
     private IEnumerator countLoop(float waitTime)
@@ -101,6 +127,43 @@ public class BackendHandler : MonoBehaviour
         toggleCountdown();
     }
 
+    public float getAnimTime(Animator anim)
+    {
+        float returnTime;
+        AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
+        for (var i = 0; i < clips.Length; i++)
+        {
+            switch (clips[i].name)
+            {
+                case "StartPageAppear":
+                    time = clips[i].length;
+                    break;
+
+                case "StartPageMove":
+                    time = clips[i].length;
+                    break;
+
+                case "VideoMove":
+                    time = clips[i].length;
+                    break;
+
+                case "SubjectAppear":
+                    time = clips[i].length;
+                    break;
+
+                case "SubjectPopMath":
+                    time = clips[i].length;
+                    break;
+
+                case "CountdownAppear":
+                    time = clips[i].length;
+                    break;
+            }
+        }
+        returnTime = time;
+        return returnTime;
+    }
+
     public void beginQuiz()
     {
         countdownDisplay.transform.parent.gameObject.SetActive(false);
@@ -110,25 +173,29 @@ public class BackendHandler : MonoBehaviour
 
     public void SetButtonFunction(string pageType)
     {
-        mainButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        mainButton.transform.GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
         switch (pageType)
         {
             case "startGame":
-                mainButton.transform.GetChild(0).GetComponent<Image>().sprite = buttonText[0];
-                mainButton.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(700, 72);
-                mainButton.GetComponent<Button>().onClick.AddListener(delegate { startGame(); });
+                mainButton.transform.GetChild(1).GetComponent<Image>().sprite = buttonText[0];
+                mainButton.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(700, 72);
+                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { startGame(); });
                 break;
 
             case "mathStart":
-                mainButton.transform.GetChild(0).GetComponent<Image>().sprite = buttonText[1];
-                mainButton.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
-                mainButton.GetComponent<Button>().onClick.AddListener(delegate { startCountdown(); });
+                mainButton.transform.GetChild(1).GetComponent<Image>().sprite = buttonText[1];
+                mainButton.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
+                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { shiftToCountDown(); });
                 break;
 
             case "englishStart":
-                mainButton.transform.GetChild(0).GetComponent<Image>().sprite = buttonText[2];
-                mainButton.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
-                mainButton.GetComponent<Button>().onClick.AddListener(delegate { startCountdown(); });
+                mainButton.transform.GetChild(1).GetComponent<Image>().sprite = buttonText[2];
+                mainButton.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
+                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { startCountdown(); });
+                break;
+
+            case "clear":
+                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
                 break;
         }
 

@@ -9,7 +9,7 @@ public class QuestionHandler : MonoBehaviour
     public static QuestionHandler singleton;
     public GameObject quizPage;
     public List<Sprite> mathPictures;
-    [SerializeField] private GameObject questionBoxWords, questionBoxPicture;
+    [SerializeField] private GameObject questionBoxWords, questionBoxPicture, correctResponseEffect;
     [SerializeField] private Slider timeBar;
     [SerializeField] private Image timerBarDisplay;
     [SerializeField] private Sprite mathTimerBar, engTimerBar;
@@ -30,7 +30,7 @@ public class QuestionHandler : MonoBehaviour
 
     private void Start()
     {
-        maxTimer = 30;
+        maxTimer = 32;
         questionPool = new List<int>();
         targetChoices = new List<GameObject>();
         choicesRef = new Dictionary<int, string>();
@@ -150,6 +150,7 @@ public class QuestionHandler : MonoBehaviour
         if (correct)
         {
             Debug.Log("correct answer");
+            correctResponseEffect.SetActive(false);
             score++;
             questionBox.GetComponent<QuestionBoxHandler>().scoreDisplay.text = score.ToString();
         }
@@ -183,6 +184,15 @@ public class QuestionHandler : MonoBehaviour
                 b.GetComponent<TargetHandler>().resetImage();
             }
         }
+    }
+
+    public void correctResponse(GameObject target) //animation for correct answer
+    {
+        int layer = target.transform.GetSiblingIndex();
+        correctResponseEffect.GetComponent<RectTransform>().anchoredPosition = target.GetComponent<RectTransform>().anchoredPosition;
+        correctResponseEffect.transform.SetSiblingIndex(layer - 1);
+        correctResponseEffect.SetActive(true);
+        correctResponseEffect.GetComponent<Animator>().Play("CorrectTarget");
     }
 
     private void Update()
