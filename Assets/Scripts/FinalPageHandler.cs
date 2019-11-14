@@ -12,6 +12,7 @@ public class FinalPageHandler : MonoBehaviour
     public TextMeshProUGUI mathScore, englishScore, highScore;
     public Image firstNumDisplay, secondNumDisplay;
     public List<Sprite> scoreNumImg;
+    private Animator thisAnim;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class FinalPageHandler : MonoBehaviour
 
     private void Start()
     {
+        thisAnim = finalPage.GetComponent<Animator>();
         finalPage.SetActive(false);
     }
 
@@ -59,6 +61,9 @@ public class FinalPageHandler : MonoBehaviour
         }
 
         finalPage.SetActive(true);
+        thisAnim.enabled = true;
+        thisAnim.Play("FinalPageShow");
+        StartCoroutine(finalAnim(BackendHandler.singleton.getAnimTime(thisAnim) + 0.2f));
     }
 
     public void backToStart()
@@ -69,10 +74,22 @@ public class FinalPageHandler : MonoBehaviour
 
     public void restartQuiz()
     {
+        Destroy(finalPage.transform.GetChild(0).gameObject.GetComponent<ObjectPulse>());
         finalPage.SetActive(false);
         BackendHandler.totalScore = 0;
         BackendHandler.singleton.currSubject = BackendHandler.SUBJECTS.MATH;
         LoadXMLFile.singleton.changeXML("math");
-        BackendHandler.singleton.startCountdown();
+        BackendHandler.singleton.restartCountdown();
+    }
+
+    private IEnumerator finalAnim (float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        thisAnim.enabled = false;
+        var header = finalPage.transform.GetChild(0).gameObject;
+        header.AddComponent<ObjectPulse>();
+        header.GetComponent<ObjectPulse>().approachSpeed = 0.003f;
+        header.GetComponent<ObjectPulse>().growthBound = 1;
+        header.GetComponent<ObjectPulse>().shrinkBound = 0.9f;
     }
 }

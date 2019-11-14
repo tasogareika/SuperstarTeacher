@@ -32,6 +32,10 @@ public class BackendHandler : MonoBehaviour
         countdownDisplay.transform.parent.gameObject.SetActive(false);
         buttonAnimator = mainButton.GetComponent<Animator>();
         countDownAnimator = countdownDisplay.transform.parent.GetComponent<Animator>();
+
+        #if UNITY_EDITOR
+        PlayerPrefs.DeleteAll();
+        #endif
     }
 
     //ref: https://forum.unity.com/threads/detect-double-click-on-something-what-is-the-best-way.476759/
@@ -78,6 +82,13 @@ public class BackendHandler : MonoBehaviour
     {
         SubjectStartHandler.singleton.moveToCountdown();
         mainButtonShow();
+        countdownDisplay.transform.parent.gameObject.SetActive(true);
+        countDownAnimator.Play("CountdownAppear");
+        StartCoroutine(beginCountdown(getAnimTime(countDownAnimator) + 0.2f));
+    }
+
+    public void restartCountdown()
+    {
         countdownDisplay.transform.parent.gameObject.SetActive(true);
         countDownAnimator.Play("CountdownAppear");
         StartCoroutine(beginCountdown(getAnimTime(countDownAnimator) + 0.2f));
@@ -155,7 +166,19 @@ public class BackendHandler : MonoBehaviour
                     time = clips[i].length;
                     break;
 
+                case "SubjectPopEnglish":
+                    time = clips[i].length;
+                    break;
+
                 case "CountdownAppear":
+                    time = clips[i].length;
+                    break;
+
+                case "FinalPageShow":
+                    time = clips[i].length;
+                    break;
+
+                case "QuizPageMove":
                     time = clips[i].length;
                     break;
             }
@@ -191,7 +214,7 @@ public class BackendHandler : MonoBehaviour
             case "englishStart":
                 mainButton.transform.GetChild(1).GetComponent<Image>().sprite = buttonText[2];
                 mainButton.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
-                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { startCountdown(); });
+                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { shiftToCountDown(); });
                 break;
 
             case "clear":

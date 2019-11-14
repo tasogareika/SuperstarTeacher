@@ -34,9 +34,14 @@ public class SubjectStartHandler : MonoBehaviour
         englishStart.SetActive(true);
         mathStart.SetActive(false);
         subjectStartPage.SetActive(true);
+        subjectStartPage.transform.GetChild(0).gameObject.SetActive(false);
+        subjectStartPage.transform.GetChild(1).gameObject.SetActive(false);
         BackendHandler.singleton.currSubject = BackendHandler.SUBJECTS.ENGLISH;
         LoadXMLFile.singleton.changeXML("english");
-        BackendHandler.singleton.SetButtonFunction("englishStart");
+        thisAnim.Play("SubjectAppear");
+        BackendHandler.singleton.mainButton.SetActive(true);
+        BackendHandler.singleton.mainButtonReturn();
+        StartCoroutine(startEnglishAnim(BackendHandler.singleton.getAnimTime(thisAnim)));
     }
 
     public void moveToCountdown()
@@ -53,6 +58,19 @@ public class SubjectStartHandler : MonoBehaviour
         mathStart.SetActive(true);
         thisAnim.Play("SubjectPopMath");
         StartCoroutine(doAnimations(BackendHandler.singleton.getAnimTime(thisAnim) + 0.1f));
+    }
+
+    private IEnumerator startEnglishAnim (float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        subjectStartPage.transform.GetChild(0).gameObject.SetActive(true);
+        subjectStartPage.transform.GetChild(1).gameObject.SetActive(true);
+        englishStart.SetActive(true);
+        mathStart.SetActive(false);
+        subjectStartPage.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        thisAnim.Play("SubjectPopEnglish");
+        BackendHandler.singleton.SetButtonFunction("englishStart");
+        StartCoroutine(doAnimations(BackendHandler.singleton.getAnimTime(thisAnim)));
     }
 
     private IEnumerator doAnimations (float waitTime)

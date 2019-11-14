@@ -40,6 +40,7 @@ public class QuestionHandler : MonoBehaviour
 
     public void beginQuiz()
     {
+        quizPage.GetComponent<Animator>().Play("QuizPageStill");
         switch (BackendHandler.singleton.currSubject)
         {
             case BackendHandler.SUBJECTS.ENGLISH:
@@ -216,7 +217,6 @@ public class QuestionHandler : MonoBehaviour
     private void endQuiz(bool complete) //end of quiz
     {
         timerRun = false;
-        quizPage.SetActive(false);
         questionPool.Clear();
 
         BackendHandler.totalScore += score;
@@ -224,12 +224,14 @@ public class QuestionHandler : MonoBehaviour
         switch (BackendHandler.singleton.currSubject)
         {
             case BackendHandler.SUBJECTS.MATH:
+                quizPage.SetActive(false);
                 FinalPageHandler.singleton.mathScore.text = score.ToString();
                 SubjectStartHandler.singleton.englishStartDisplay();
                 break;
                 
             case BackendHandler.SUBJECTS.ENGLISH:
                 FinalPageHandler.singleton.englishScore.text = score.ToString();
+                quizPage.GetComponent<Animator>().Play("QuizPageMove");
                 FinalPageHandler.singleton.finalPageShow();
                 break;
         }
