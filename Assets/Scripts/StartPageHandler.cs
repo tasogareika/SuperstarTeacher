@@ -41,6 +41,14 @@ public class StartPageHandler : MonoBehaviour
         StartCoroutine(showMath(BackendHandler.singleton.getAnimTime(thisAnimator) + 0.3f));
     }
 
+    public void restartGame()
+    {
+        BackendHandler.singleton.mainButton.SetActive(true);
+        BackendHandler.singleton.mainButtonReturn();
+        SubjectStartHandler.singleton.mathStartDisplay();
+        StartCoroutine(showMath(BackendHandler.singleton.getAnimTime(thisAnimator) + 0.3f));
+    }
+
     public void skipVideo()
     {
         StreamVideo.singleton.videoSkip();

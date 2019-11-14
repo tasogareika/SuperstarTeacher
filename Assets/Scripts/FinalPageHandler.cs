@@ -79,7 +79,7 @@ public class FinalPageHandler : MonoBehaviour
         BackendHandler.totalScore = 0;
         BackendHandler.singleton.currSubject = BackendHandler.SUBJECTS.MATH;
         LoadXMLFile.singleton.changeXML("math");
-        BackendHandler.singleton.restartCountdown();
+        StartPageHandler.singleton.restartGame();
     }
 
     private IEnumerator finalAnim (float waitTime)

@@ -9,7 +9,7 @@ public class TargetSpawners : MonoBehaviour
     [SerializeField] private GameObject quizPage;
     public List<GameObject> targetList;
     public GameObject spawnPoint;
-    private float targetWidth, targetHeight;
+    private float targetWidth, targetHeight, appWidth, appHeight;
     private Vector2 lastSpawnPos;
 
     private void Awake()
@@ -19,6 +19,8 @@ public class TargetSpawners : MonoBehaviour
 
     private void Start()
     {
+        appWidth = 1080;
+        appHeight = 1920;
         lastSpawnPos = spawnPoint.GetComponent<RectTransform>().anchoredPosition;
         quizPage.SetActive(false);
     }
@@ -33,11 +35,11 @@ public class TargetSpawners : MonoBehaviour
             targetHeight = target.GetComponent<RectTransform>().rect.height;
             target.transform.SetParent(quizPage.transform);
             target.transform.localScale = Vector3.one;
-            float maxX = Screen.width - targetWidth;
-            float minY = Screen.height * -0.55f;
-            float maxY = (Screen.height - targetHeight) * -1;
-            float xVariance = Mathf.RoundToInt(Random.Range(targetWidth * 0.5f, Screen.width * 0.3f));
-            float yVariance = Mathf.RoundToInt(Random.Range(targetHeight * 0.5f, Screen.height * 0.2f));
+            float maxX = appWidth - targetWidth;
+            float minY = appHeight * -0.55f;
+            float maxY = (appHeight - targetHeight) * -1;
+            float xVariance = Mathf.RoundToInt(Random.Range(targetWidth * 0.5f, appWidth * 0.3f));
+            float yVariance = Mathf.RoundToInt(Random.Range(targetHeight * 0.5f, appHeight * 0.2f));
 
             switch (i)
             {

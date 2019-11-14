@@ -36,6 +36,12 @@ public class BackendHandler : MonoBehaviour
         #if UNITY_EDITOR
         PlayerPrefs.DeleteAll();
         #endif
+
+        //set portrait res
+        #if UNITY_STANDALONE
+        Screen.SetResolution(720, 1280, false);
+        //Screen.SetResolution(1080, 1920, true);
+        #endif
     }
 
     //ref: https://forum.unity.com/threads/detect-double-click-on-something-what-is-the-best-way.476759/
@@ -82,13 +88,6 @@ public class BackendHandler : MonoBehaviour
     {
         SubjectStartHandler.singleton.moveToCountdown();
         mainButtonShow();
-        countdownDisplay.transform.parent.gameObject.SetActive(true);
-        countDownAnimator.Play("CountdownAppear");
-        StartCoroutine(beginCountdown(getAnimTime(countDownAnimator) + 0.2f));
-    }
-
-    public void restartCountdown()
-    {
         countdownDisplay.transform.parent.gameObject.SetActive(true);
         countDownAnimator.Play("CountdownAppear");
         StartCoroutine(beginCountdown(getAnimTime(countDownAnimator) + 0.2f));
