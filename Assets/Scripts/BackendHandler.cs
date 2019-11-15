@@ -39,8 +39,8 @@ public class BackendHandler : MonoBehaviour
 
         //set portrait res
         #if UNITY_STANDALONE
-        Screen.SetResolution(720, 1280, false);
-        //Screen.SetResolution(1080, 1920, true);
+        //Screen.SetResolution(720, 1280, false);
+        Screen.SetResolution(1080, 1920, true);
         #endif
     }
 
@@ -97,6 +97,7 @@ public class BackendHandler : MonoBehaviour
     {
         SubjectStartHandler.singleton.subjectStartPage.SetActive(false);
         countdownNo = 4;
+        countdownDisplay.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         toggleCountdown();
         mainButton.SetActive(false);
     }
@@ -113,6 +114,11 @@ public class BackendHandler : MonoBehaviour
         else
         {
             beginQuiz();
+        }
+
+        if (countdownNo < 1)
+        {
+            countdownDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 120f);
         }
     }
 

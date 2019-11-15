@@ -8,9 +8,10 @@ using UnityEngine.SceneManagement;
 public class FinalPageHandler : MonoBehaviour
 {
     public static FinalPageHandler singleton;
+    [SerializeField] private GameObject header, stars;
     public GameObject finalPage, newHighScoreImg;
     public TextMeshProUGUI mathScore, englishScore, highScore;
-    public Image firstNumDisplay, secondNumDisplay;
+    public Image finalScoreDisplay;
     public List<Sprite> scoreNumImg;
     private Animator thisAnim;
 
@@ -27,16 +28,7 @@ public class FinalPageHandler : MonoBehaviour
 
     public void finalPageShow()
     {
-        if (BackendHandler.totalScore < 10)
-        {
-            firstNumDisplay.sprite = scoreNumImg[0];
-            secondNumDisplay.sprite = scoreNumImg[BackendHandler.totalScore];
-        } else
-        {
-            string s = BackendHandler.totalScore.ToString();
-            firstNumDisplay.sprite = scoreNumImg[int.Parse(s[0].ToString())];
-            secondNumDisplay.sprite = scoreNumImg[int.Parse(s[1].ToString())];
-        }
+        finalScoreDisplay.sprite = scoreNumImg[BackendHandler.totalScore];
 
         if (!PlayerPrefs.HasKey("HighScore"))
         {
@@ -74,7 +66,8 @@ public class FinalPageHandler : MonoBehaviour
 
     public void restartQuiz()
     {
-        Destroy(finalPage.transform.GetChild(0).gameObject.GetComponent<ObjectPulse>());
+        Destroy(header.GetComponent<ObjectPulse>());
+        Destroy(stars.GetComponent<ObjectPulse>());
         finalPage.SetActive(false);
         BackendHandler.totalScore = 0;
         BackendHandler.singleton.currSubject = BackendHandler.SUBJECTS.MATH;
@@ -86,10 +79,14 @@ public class FinalPageHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         thisAnim.enabled = false;
-        var header = finalPage.transform.GetChild(0).gameObject;
         header.AddComponent<ObjectPulse>();
         header.GetComponent<ObjectPulse>().approachSpeed = 0.003f;
         header.GetComponent<ObjectPulse>().growthBound = 1;
         header.GetComponent<ObjectPulse>().shrinkBound = 0.9f;
+
+        stars.AddComponent<ObjectPulse>();
+        stars.GetComponent<ObjectPulse>().approachSpeed = 0.003f;
+        stars.GetComponent<ObjectPulse>().growthBound = 1;
+        stars.GetComponent<ObjectPulse>().shrinkBound = 0.9f;
     }
 }

@@ -9,7 +9,7 @@ public class QuestionHandler : MonoBehaviour
     public static QuestionHandler singleton;
     public GameObject quizPage;
     public List<Sprite> mathPictures;
-    [SerializeField] private GameObject questionBoxWords, questionBoxPicture, correctResponseEffect;
+    [SerializeField] private GameObject questionBoxWords, questionBoxPicture, correctResponseEffect, timerImg;
     [SerializeField] private Slider timeBar;
     [SerializeField] private Image timerBarDisplay;
     [SerializeField] private Sprite mathTimerBar, engTimerBar;
@@ -48,6 +48,10 @@ public class QuestionHandler : MonoBehaviour
                 questionBoxPicture.SetActive(false);
                 questionBox = questionBoxWords;
                 timerBarDisplay.sprite = engTimerBar;
+                foreach (var t in TargetSpawners.singleton.targetList)
+                {
+                    t.GetComponent<TargetHandler>().answerDisplay.fontSize = 42;
+                }
                 break;
 
             case BackendHandler.SUBJECTS.MATH:
@@ -55,6 +59,10 @@ public class QuestionHandler : MonoBehaviour
                 questionBoxPicture.SetActive(true);
                 questionBox = questionBoxPicture;
                 timerBarDisplay.sprite = mathTimerBar;
+                foreach (var t in TargetSpawners.singleton.targetList)
+                {
+                    t.GetComponent<TargetHandler>().answerDisplay.fontSize = 68;
+                }
                 break;
         }
 
@@ -68,6 +76,8 @@ public class QuestionHandler : MonoBehaviour
         currTimer = maxTimer;
         timeBar.maxValue = currTimer;
         timeBar.value = currTimer;
+        timerImg.GetComponent<ObjectWiggle>().speed = 6;
+        timerImg.GetComponent<ObjectWiggle>().maxRotation = 10;
         score = 0;
         questionBox.GetComponent<QuestionBoxHandler>().scoreDisplay.text = score.ToString();
         TargetSpawners.singleton.spawnTargets();
@@ -210,6 +220,12 @@ public class QuestionHandler : MonoBehaviour
                 //time's up
                 timerRun = false;
                 endQuiz(false);
+            }
+
+            if (currTimer < 10)
+            {
+                timerImg.GetComponent<ObjectWiggle>().speed = 30;
+                timerImg.GetComponent<ObjectWiggle>().maxRotation = 20;
             }
         }
     }
