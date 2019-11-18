@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,10 @@ public class FinalPageHandler : MonoBehaviour
     public static FinalPageHandler singleton;
     [SerializeField] private GameObject header, stars;
     public GameObject finalPage, newHighScoreImg;
-    public TextMeshProUGUI mathScore, englishScore, highScore;
-    public Image finalScoreDisplay;
-    public List<Sprite> scoreNumImg;
+    public TextMeshProUGUI gamesPlayed;
+    public Image finalScoreDisplay, highScoreDisplay, mathScoreDisplay, englishScoreDisplay;
+    public List<Sprite> scoreNumImg, highScoreImg;
+    private int currHighScore, timesPlayed;
     private Animator thisAnim;
 
     private void Awake()
@@ -28,29 +30,33 @@ public class FinalPageHandler : MonoBehaviour
 
     public void finalPageShow()
     {
-        finalScoreDisplay.sprite = scoreNumImg[BackendHandler.totalScore];
+        //get data from txt file
+        string[] data = File.ReadAllLines(BackendHandler.singleton.pathFile);
+        string[] score = data[0].Split(':');
+        currHighScore = int.Parse(score[1]);
+        string[] played = data[1].Split(':');
+        timesPlayed = int.Parse(played[1]);
 
-        if (!PlayerPrefs.HasKey("HighScore"))
+        finalScoreDisplay.sprite = scoreNumImg[BackendHandler.totalScore];
+        timesPlayed++;
+        gamesPlayed.text = timesPlayed.ToString();
+        
+        if (currHighScore < BackendHandler.totalScore)
         {
             newHighScoreImg.SetActive(true);
-            highScore.text = BackendHandler.totalScore.ToString();
-            PlayerPrefs.SetInt("HighScore", BackendHandler.totalScore);
-            PlayerPrefs.Save();
+            currHighScore = BackendHandler.totalScore;
+            highScoreDisplay.sprite = highScoreImg[currHighScore];
         } else
         {
-            int currHighScore = PlayerPrefs.GetInt("HighScore");
-            if (currHighScore < BackendHandler.totalScore)
-            {
-                newHighScoreImg.SetActive(true);
-                highScore.text = BackendHandler.totalScore.ToString();
-                PlayerPrefs.SetInt("HighScore", BackendHandler.totalScore);
-                PlayerPrefs.Save();
-            } else
-            {
-                newHighScoreImg.SetActive(false);
-                highScore.text = currHighScore.ToString();
-            }
+            newHighScoreImg.SetActive(false);
+            highScoreDisplay.sprite = highScoreImg[currHighScore];
         }
+
+        //save updated data
+        File.Delete(BackendHandler.singleton.pathFile);
+        StreamWriter writer = new StreamWriter(BackendHandler.singleton.pathFile, true);
+        writer.WriteLine("High Score:" + currHighScore + "\nTimes Played:" + gamesPlayed.text);
+        writer.Close();
 
         finalPage.SetActive(true);
         thisAnim.enabled = true;

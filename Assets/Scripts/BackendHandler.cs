@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class BackendHandler : MonoBehaviour
     public GameObject mainButton;
     [SerializeField] private GameObject countdownDisplay;
     public List<Sprite> buttonText, countdownImg;
+    [HideInInspector] public string pathFile;
     private int clickNo, countdownNo;
     private float clickTime, clickDelay, time;
     [HideInInspector] public Animator buttonAnimator, countDownAnimator;
@@ -33,9 +35,13 @@ public class BackendHandler : MonoBehaviour
         buttonAnimator = mainButton.GetComponent<Animator>();
         countDownAnimator = countdownDisplay.transform.parent.GetComponent<Animator>();
 
-        #if UNITY_EDITOR
-        PlayerPrefs.DeleteAll();
-        #endif
+        pathFile = Application.dataPath + "/" + "scoreplayed.txt";
+        if (!File.Exists(pathFile))
+        {
+            StreamWriter writer = new StreamWriter(pathFile, true);
+            writer.WriteLine("High Score:0\nTimes Played:0");
+            writer.Close();
+        }
 
         //set portrait res
         #if UNITY_STANDALONE

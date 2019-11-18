@@ -51,7 +51,9 @@ public class QuestionHandler : MonoBehaviour
                 foreach (var t in TargetSpawners.singleton.targetList)
                 {
                     t.GetComponent<TargetHandler>().answerDisplay.fontSize = 42;
+                    t.GetComponent<TargetHandler>().switchImages("rectangle");
                 }
+                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(350, 200);
                 break;
 
             case BackendHandler.SUBJECTS.MATH:
@@ -62,7 +64,9 @@ public class QuestionHandler : MonoBehaviour
                 foreach (var t in TargetSpawners.singleton.targetList)
                 {
                     t.GetComponent<TargetHandler>().answerDisplay.fontSize = 68;
+                    t.GetComponent<TargetHandler>().switchImages("circle");
                 }
+                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 300);
                 break;
         }
 
@@ -191,17 +195,14 @@ public class QuestionHandler : MonoBehaviour
         {
             if (b.GetComponent<TargetHandler>().answer)
             {
-                b.GetComponent<Image>().sprite = b.GetComponent<TargetHandler>().correctImg;
-                b.GetComponent<TargetHandler>().resetImage();
+                b.GetComponent<TargetHandler>().displayAnswer();
             }
         }
     }
 
     public void correctResponse(GameObject target) //animation for correct answer
     {
-        int layer = target.transform.GetSiblingIndex();
         correctResponseEffect.GetComponent<RectTransform>().anchoredPosition = target.GetComponent<RectTransform>().anchoredPosition;
-        correctResponseEffect.transform.SetSiblingIndex(layer - 1);
         correctResponseEffect.SetActive(true);
         correctResponseEffect.GetComponent<Animator>().Play("CorrectTarget");
     }
@@ -237,16 +238,18 @@ public class QuestionHandler : MonoBehaviour
 
         BackendHandler.totalScore += score;
 
+        closeButtons();
+
         switch (BackendHandler.singleton.currSubject)
         {
             case BackendHandler.SUBJECTS.MATH:
                 quizPage.SetActive(false);
-                FinalPageHandler.singleton.mathScore.text = score.ToString();
+                FinalPageHandler.singleton.mathScoreDisplay.sprite = FinalPageHandler.singleton.highScoreImg[score];
                 SubjectStartHandler.singleton.englishStartDisplay();
                 break;
                 
             case BackendHandler.SUBJECTS.ENGLISH:
-                FinalPageHandler.singleton.englishScore.text = score.ToString();
+                FinalPageHandler.singleton.englishScoreDisplay.sprite = FinalPageHandler.singleton.highScoreImg[score];
                 quizPage.GetComponent<Animator>().Play("QuizPageMove");
                 FinalPageHandler.singleton.finalPageShow();
                 break;
