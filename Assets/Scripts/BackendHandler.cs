@@ -19,6 +19,8 @@ public class BackendHandler : MonoBehaviour
     private int clickNo, countdownNo;
     private float clickTime, clickDelay, time;
     [HideInInspector] public Animator buttonAnimator, countDownAnimator;
+    private AudioSource audioPlayer, SFXPlayer;
+    public AudioClip titleBGM, gameBGM, buttonClickSFX, countdownSFX, countdownFinalSFX, correctSFX, wrongSFX;
 
     private void Awake()
     {
@@ -34,6 +36,8 @@ public class BackendHandler : MonoBehaviour
         countdownDisplay.transform.parent.gameObject.SetActive(false);
         buttonAnimator = mainButton.GetComponent<Animator>();
         countDownAnimator = countdownDisplay.transform.parent.GetComponent<Animator>();
+        audioPlayer = GetComponent<AudioSource>();
+        SFXPlayer = Camera.main.gameObject.GetComponent<AudioSource>();
 
         pathFile = Application.dataPath + "/" + "scoreplayed.txt";
         if (!File.Exists(pathFile))
@@ -86,6 +90,7 @@ public class BackendHandler : MonoBehaviour
     public void startGame()
     {
         SetButtonFunction("clear");
+        playSFX(1);
         StartPageHandler.singleton.shiftToVideo();
         LoadXMLFile.singleton.changeXML("math");
     }
@@ -94,6 +99,7 @@ public class BackendHandler : MonoBehaviour
     {
         SubjectStartHandler.singleton.moveToCountdown();
         mainButtonShow();
+        playSFX(1);
         countdownDisplay.transform.parent.gameObject.SetActive(true);
         countDownAnimator.Play("CountdownAppear");
         StartCoroutine(beginCountdown(getAnimTime(countDownAnimator) + 0.2f));
@@ -122,7 +128,7 @@ public class BackendHandler : MonoBehaviour
             beginQuiz();
         }
 
-        if (countdownNo < 1)
+        if (countdownNo == 0)
         {
             countdownDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 120f);
         }
@@ -136,17 +142,68 @@ public class BackendHandler : MonoBehaviour
 
     private IEnumerator countLoop(float waitTime)
     {
-        if (countdownNo > 1)
+        if (countdownNo >= 1)
         {
-            //playCountdownBeep();
+            playSFX(2);
         }
         else
         {
-            //playCountdownLast();
+            playSFX(3);
         }
 
         yield return new WaitForSeconds(waitTime);
         toggleCountdown();
+    }
+
+    public void playSFX (int SFXNo)
+    {
+        switch (SFXNo)
+        {
+            case 1:
+                SFXPlayer.clip = buttonClickSFX;
+                break;
+
+            case 2:
+                SFXPlayer.clip = countdownSFX;
+                break;
+
+            case 3:
+                SFXPlayer.clip = countdownFinalSFX;
+                break;
+
+            case 4:
+                SFXPlayer.clip = correctSFX;
+                break;
+
+            case 5:
+                SFXPlayer.clip = wrongSFX;
+                break;
+        }
+
+        SFXPlayer.Play();
+    }
+
+    public void playBGM (string track)
+    {
+        stopBGM();
+
+        switch (track)
+        {
+            case "titleBGM":
+                audioPlayer.clip = titleBGM;
+                break;
+
+            case "gameBGM":
+                audioPlayer.clip = gameBGM;
+                break;
+        }
+
+        audioPlayer.Play();
+    }
+
+    public void stopBGM()
+    {
+        audioPlayer.Stop();
     }
 
     public float getAnimTime(Animator anim)

@@ -66,12 +66,14 @@ public class FinalPageHandler : MonoBehaviour
 
     public void backToStart()
     {
+        BackendHandler.singleton.playSFX(1);
         finalPage.SetActive(false);
         SceneManager.LoadScene(0);
     }
 
     public void restartQuiz()
     {
+        BackendHandler.singleton.playSFX(1);
         Destroy(header.GetComponent<ObjectPulse>());
         Destroy(stars.GetComponent<ObjectPulse>());
         finalPage.SetActive(false);

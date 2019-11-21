@@ -86,6 +86,7 @@ public class QuestionHandler : MonoBehaviour
         questionBox.GetComponent<QuestionBoxHandler>().scoreDisplay.text = score.ToString();
         TargetSpawners.singleton.spawnTargets();
         nextQuestion();
+        BackendHandler.singleton.playBGM("gameBGM");
     }
 
     public void nextQuestion()
@@ -239,6 +240,7 @@ public class QuestionHandler : MonoBehaviour
         BackendHandler.totalScore += score;
 
         closeButtons();
+        BackendHandler.singleton.stopBGM();
 
         switch (BackendHandler.singleton.currSubject)
         {

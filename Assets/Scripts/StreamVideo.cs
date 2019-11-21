@@ -53,6 +53,7 @@ public class StreamVideo : MonoBehaviour
 
     public void videoSkip()
     {
+        BackendHandler.singleton.playSFX(1);
         videoPlayer.Stop();
         audioSource.Stop();
     }

@@ -60,11 +60,13 @@ public class StartPageHandler : MonoBehaviour
         startPage.GetComponent<Animator>().enabled = false;
         BackendHandler.singleton.buttonAnimator.enabled = false;
         BackendHandler.singleton.SetButtonFunction("startGame");
+        BackendHandler.singleton.playBGM("titleBGM");
     }
 
     private IEnumerator startVideo(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        BackendHandler.singleton.stopBGM();
         StreamVideo.singleton.startVideo();
     }
 

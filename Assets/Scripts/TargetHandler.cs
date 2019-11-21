@@ -25,15 +25,15 @@ public class TargetHandler : MonoBehaviour
         {
             GetComponent<Image>().sprite = correctImg;
             QuestionHandler.singleton.correctResponse(this.gameObject);
-            //BackendHandler.singleton.playCorrectAns();
+            BackendHandler.singleton.playSFX(4);
             StartCoroutine(nextQuestion(1f));
         }
         else
         {
             GetComponent<Image>().sprite = wrongImg;
             QuestionHandler.singleton.showCorrectAnswer();
-           //BackendHandler.singleton.playWrongAns();
-           StartCoroutine(nextQuestion(2f));
+            BackendHandler.singleton.playSFX(5);
+            StartCoroutine(nextQuestion(2f));
         }
         answerDisplay.color = shiftColor;
         QuestionHandler.singleton.closeButtons();
