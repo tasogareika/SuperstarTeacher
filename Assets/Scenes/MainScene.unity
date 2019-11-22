@@ -287,13 +287,14 @@ GameObject:
   - component: {fileID: 50988089}
   - component: {fileID: 50988091}
   - component: {fileID: 50988090}
+  - component: {fileID: 50988092}
   m_Layer: 5
   m_Name: FinalPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &50988089
 RectTransform:
   m_ObjectHideFlags: 0
@@ -344,6 +345,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50988088}
   m_CullTransparentMesh: 0
+--- !u!114 &50988092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50988088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af824356e4aecca46bca51ba319e3bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &64238625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,11 +1674,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2116,7 +2129,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 50
+  Priority: 40
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -3351,7 +3364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &921554121
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3610,11 +3623,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4599,11 +4612,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -5798,11 +5811,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -8036,12 +8049,17 @@ MonoBehaviour:
   buttonAnimator: {fileID: 0}
   countDownAnimator: {fileID: 0}
   titleBGM: {fileID: 8300000, guid: 0642ad6ba2c85f34cbaa4b1c4e3ff925, type: 3}
-  gameBGM: {fileID: 8300000, guid: 70d8a0853db89064495038f1f497332a, type: 3}
+  gameBGM: {fileID: 8300000, guid: bc5e79f469bf0134a8715893ac3f46e7, type: 3}
+  endingBGM: {fileID: 8300000, guid: 64c22efafe8971941a0c625a496e4e4a, type: 3}
+  subjectBGM: {fileID: 8300000, guid: 136adddc1afe1624c956ffba07959126, type: 3}
   buttonClickSFX: {fileID: 8300000, guid: aef830cde892beb458ac10052c22a358, type: 3}
   countdownSFX: {fileID: 8300000, guid: d91bda2b58d72334499937729039ec93, type: 3}
   countdownFinalSFX: {fileID: 8300000, guid: 767387141fe42a74d9a02c61f0b34481, type: 3}
   correctSFX: {fileID: 8300000, guid: 2f095c12d04ee8048a4dee086a072bfa, type: 3}
   wrongSFX: {fileID: 8300000, guid: 4925c9f3d6fa94e48a86f5ac57d60158, type: 3}
+  starSFX1: {fileID: 8300000, guid: 80c2a60cbf4ca0f47a69fcb14eeac742, type: 3}
+  starSFX2: {fileID: 8300000, guid: 6fc4c462b63fe9644a33407b92b36fbb, type: 3}
+  starSFX3: {fileID: 8300000, guid: bbbf96a08e12aad438bc673256c3b1be, type: 3}
 --- !u!114 &2130449689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8174,13 +8192,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 200
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

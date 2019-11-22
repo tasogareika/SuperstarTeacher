@@ -76,6 +76,7 @@ public class SubjectStartHandler : MonoBehaviour
     private IEnumerator doAnimations (float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
+        BackendHandler.singleton.playBGM("subjectBGM");
         thisAnim.Play("SubjectIdle");
     }
 }

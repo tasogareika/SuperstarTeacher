@@ -20,7 +20,7 @@ public class BackendHandler : MonoBehaviour
     private float clickTime, clickDelay, time;
     [HideInInspector] public Animator buttonAnimator, countDownAnimator;
     private AudioSource audioPlayer, SFXPlayer;
-    public AudioClip titleBGM, gameBGM, buttonClickSFX, countdownSFX, countdownFinalSFX, correctSFX, wrongSFX;
+    public AudioClip titleBGM, gameBGM, endingBGM, subjectBGM, buttonClickSFX, countdownSFX, countdownFinalSFX, correctSFX, wrongSFX, starSFX1, starSFX2, starSFX3;
 
     private void Awake()
     {
@@ -178,6 +178,22 @@ public class BackendHandler : MonoBehaviour
             case 5:
                 SFXPlayer.clip = wrongSFX;
                 break;
+
+            case 6:
+                SFXPlayer.clip = endingBGM;
+                break;
+
+            case 7:
+                SFXPlayer.clip = starSFX1;
+                break;
+
+            case 8:
+                SFXPlayer.clip = starSFX2;
+                break;
+
+            case 9:
+                SFXPlayer.clip = starSFX3;
+                break;
         }
 
         SFXPlayer.Play();
@@ -195,6 +211,10 @@ public class BackendHandler : MonoBehaviour
 
             case "gameBGM":
                 audioPlayer.clip = gameBGM;
+                break;
+
+            case "subjectBGM":
+                audioPlayer.clip = subjectBGM;
                 break;
         }
 

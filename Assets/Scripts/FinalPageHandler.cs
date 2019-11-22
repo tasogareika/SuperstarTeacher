@@ -61,6 +61,7 @@ public class FinalPageHandler : MonoBehaviour
         finalPage.SetActive(true);
         thisAnim.enabled = true;
         thisAnim.Play("FinalPageShow");
+        BackendHandler.singleton.playSFX(6);
         StartCoroutine(finalAnim(BackendHandler.singleton.getAnimTime(thisAnim) + 0.2f));
     }
 
