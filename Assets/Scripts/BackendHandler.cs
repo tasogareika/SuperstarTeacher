@@ -89,6 +89,7 @@ public class BackendHandler : MonoBehaviour
 
     public void startGame()
     {
+        disableMainBtn();
         SetButtonFunction("clear");
         playSFX(1);
         StartPageHandler.singleton.shiftToVideo();
@@ -98,6 +99,8 @@ public class BackendHandler : MonoBehaviour
     private void shiftToCountDown()
     {
         SubjectStartHandler.singleton.moveToCountdown();
+        disableMainBtn();
+        SetButtonFunction("clear");
         mainButtonShow();
         playSFX(1);
         countdownDisplay.transform.parent.gameObject.SetActive(true);
@@ -282,6 +285,11 @@ public class BackendHandler : MonoBehaviour
         QuestionHandler.singleton.beginQuiz();
     }
 
+    public void disableMainBtn()
+    {
+        mainButton.transform.GetChild(0).GetComponent<Button>().interactable = false;
+    }
+
     public void SetButtonFunction(string pageType)
     {
         mainButton.transform.GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
@@ -311,5 +319,6 @@ public class BackendHandler : MonoBehaviour
         }
 
         mainButton.SetActive(true);
+        mainButton.transform.GetChild(0).GetComponent<Button>().interactable = true;
     }
 }

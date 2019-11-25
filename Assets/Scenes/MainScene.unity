@@ -1128,16 +1128,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3597244561527907968, guid: fd13a4459bf82024a9c20894ebadd937,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3597244561527907968, guid: fd13a4459bf82024a9c20894ebadd937,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd13a4459bf82024a9c20894ebadd937, type: 3}
 --- !u!224 &288255591 stripped
@@ -2562,16 +2552,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3597244561527907968, guid: fd13a4459bf82024a9c20894ebadd937,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3597244561527907968, guid: fd13a4459bf82024a9c20894ebadd937,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd13a4459bf82024a9c20894ebadd937, type: 3}
 --- !u!224 &622303361 stripped
@@ -3766,16 +3746,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3597244561527907968, guid: fd13a4459bf82024a9c20894ebadd937,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3597244561527907968, guid: fd13a4459bf82024a9c20894ebadd937,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd13a4459bf82024a9c20894ebadd937, type: 3}
 --- !u!224 &1060162495 stripped
@@ -4451,16 +4421,6 @@ PrefabInstance:
     - target: {fileID: 7344611424567786194, guid: fd13a4459bf82024a9c20894ebadd937,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3597244561527907968, guid: fd13a4459bf82024a9c20894ebadd937,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3597244561527907968, guid: fd13a4459bf82024a9c20894ebadd937,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -39,6 +39,7 @@ public class SubjectStartHandler : MonoBehaviour
         BackendHandler.singleton.currSubject = BackendHandler.SUBJECTS.ENGLISH;
         LoadXMLFile.singleton.changeXML("english");
         thisAnim.Play("SubjectAppear");
+        BackendHandler.singleton.playSFX(6);
         BackendHandler.singleton.mainButton.SetActive(true);
         BackendHandler.singleton.mainButtonReturn();
         StartCoroutine(startEnglishAnim(BackendHandler.singleton.getAnimTime(thisAnim)));
