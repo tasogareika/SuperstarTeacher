@@ -287,38 +287,38 @@ public class BackendHandler : MonoBehaviour
 
     public void disableMainBtn()
     {
-        mainButton.transform.GetChild(0).GetComponent<Button>().interactable = false;
+        mainButton.transform.GetComponent<Button>().interactable = false;
     }
 
     public void SetButtonFunction(string pageType)
     {
-        mainButton.transform.GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
+        mainButton.transform.GetComponent<Button>().onClick.RemoveAllListeners();
         switch (pageType)
         {
             case "startGame":
                 mainButton.transform.GetChild(1).GetComponent<Image>().sprite = buttonText[0];
                 mainButton.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(700, 72);
-                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { startGame(); });
+                mainButton.transform.GetComponent<Button>().onClick.AddListener(delegate { startGame(); });
                 break;
 
             case "mathStart":
                 mainButton.transform.GetChild(1).GetComponent<Image>().sprite = buttonText[1];
                 mainButton.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
-                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { shiftToCountDown(); });
+                mainButton.transform.GetComponent<Button>().onClick.AddListener(delegate { shiftToCountDown(); });
                 break;
 
             case "englishStart":
                 mainButton.transform.GetChild(1).GetComponent<Image>().sprite = buttonText[2];
                 mainButton.transform.GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector2(410, 196);
-                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { shiftToCountDown(); });
+                mainButton.transform.GetComponent<Button>().onClick.AddListener(delegate { shiftToCountDown(); });
                 break;
 
             case "clear":
-                mainButton.transform.GetChild(0).GetComponent<Button>().onClick.RemoveAllListeners();
+                mainButton.transform.GetComponent<Button>().onClick.RemoveAllListeners();
                 break;
         }
 
         mainButton.SetActive(true);
-        mainButton.transform.GetChild(0).GetComponent<Button>().interactable = true;
+        mainButton.transform.GetComponent<Button>().interactable = true;
     }
 }

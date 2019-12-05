@@ -29,35 +29,35 @@
   </question4>
 
   <question5>
-    <qns>Clara is the 2nd from the back and 5th from the front. How many people are there in the line?</qns>
+    <qns>How many people are there in the line?</qns>
     <picture>5</picture>
     <choices>5|6|7|8</choices>
     <answer>2</answer>
   </question5>
 
   <question6>
-    <qns>In a queue, Helen is in the 6th position. If Jack is standing just behind Helen and is 3rd from last, how many people are there in the queue?</qns>
+    <qns>What is the missing number?</qns>
     <picture>6</picture>
-    <choices>7|8|9|10</choices>
-    <answer>3</answer>
+    <choices>1|2|3|4</choices>
+    <answer>2</answer>
   </question6>
 
   <question7>
     <qns>What is the value of the square?</qns>
     <picture>7</picture>
     <choices>3|5|7|9</choices>
-    <answer>4</answer>
+    <answer>3</answer>
   </question7>
 
   <question8>
-    <qns>What is the value of the star?</qns>
+    <qns>What is the value of the square?</qns>
     <picture>8</picture>
-    <choices>13|17|25|29</choices>
+    <choices>10|5|4|3</choices>
     <answer>2</answer>
   </question8>
 
   <question9>
-    <qns>What is the missing number in the following number pattern?</qns>
+    <qns>What is the missing number in the number pattern?</qns>
     <picture>9</picture>
     <choices>7|9|11|13</choices>
     <answer>3</answer>

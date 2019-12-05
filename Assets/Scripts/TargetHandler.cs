@@ -54,14 +54,14 @@ public class TargetHandler : MonoBehaviour
                 normalBtn = circleNorm;
                 correctImg = circleCorrect;
                 wrongImg = circleWrong;
-                GetComponent<RectTransform>().sizeDelta = new Vector2(350, 350);
+                GetComponent<RectTransform>().sizeDelta = new Vector2(400, 400);
                 break;
 
             case "rectangle":
                 normalBtn = recNorm;
                 correctImg = recCorrect;
                 wrongImg = recWrong;
-                GetComponent<RectTransform>().sizeDelta = new Vector2(400, 250);
+                GetComponent<RectTransform>().sizeDelta = new Vector2(420, 270);
                 break;
         }
 

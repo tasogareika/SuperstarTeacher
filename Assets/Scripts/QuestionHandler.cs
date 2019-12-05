@@ -53,7 +53,7 @@ public class QuestionHandler : MonoBehaviour
                     t.GetComponent<TargetHandler>().answerDisplay.fontSize = 42;
                     t.GetComponent<TargetHandler>().switchImages("rectangle");
                 }
-                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 250);
+                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(420, 270);
                 break;
 
             case BackendHandler.SUBJECTS.MATH:
@@ -66,7 +66,7 @@ public class QuestionHandler : MonoBehaviour
                     t.GetComponent<TargetHandler>().answerDisplay.fontSize = 68;
                     t.GetComponent<TargetHandler>().switchImages("circle");
                 }
-                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(350, 350);
+                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 400);
                 break;
         }
 
@@ -76,6 +76,7 @@ public class QuestionHandler : MonoBehaviour
         {
             questionPool.Add(i + 1);
         }
+        shuffleList(questionPool);
         currQn = 0;
         currTimer = maxTimer;
         timeBar.maxValue = currTimer;
@@ -87,6 +88,24 @@ public class QuestionHandler : MonoBehaviour
         TargetSpawners.singleton.spawnTargets();
         nextQuestion();
         BackendHandler.singleton.playBGM("gameBGM");
+    }
+
+    private void shuffleList<E>(IList<E> list)
+    {
+        System.Random ran = new System.Random();
+
+        if (list.Count > 1)
+        {
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                E tmp = list[i];
+                int ranIndex = ran.Next(i + 1);
+
+                //swap elements
+                list[i] = list[ranIndex];
+                list[ranIndex] = tmp;
+            }
+        }
     }
 
     public void nextQuestion()
