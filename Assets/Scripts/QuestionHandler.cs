@@ -53,7 +53,7 @@ public class QuestionHandler : MonoBehaviour
                     t.GetComponent<TargetHandler>().answerDisplay.fontSize = 42;
                     t.GetComponent<TargetHandler>().switchImages("rectangle");
                 }
-                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(350, 200);
+                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 250);
                 break;
 
             case BackendHandler.SUBJECTS.MATH:
@@ -66,7 +66,7 @@ public class QuestionHandler : MonoBehaviour
                     t.GetComponent<TargetHandler>().answerDisplay.fontSize = 68;
                     t.GetComponent<TargetHandler>().switchImages("circle");
                 }
-                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 300);
+                correctResponseEffect.GetComponent<RectTransform>().sizeDelta = new Vector2(350, 350);
                 break;
         }
 
