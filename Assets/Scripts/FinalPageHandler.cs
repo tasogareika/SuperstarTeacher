@@ -31,11 +31,30 @@ public class FinalPageHandler : MonoBehaviour
     public void finalPageShow()
     {
         //get data from txt file
-        string[] data = File.ReadAllLines(BackendHandler.singleton.pathFile);
-        string[] score = data[0].Split(':');
-        currHighScore = int.Parse(score[1]);
-        string[] played = data[1].Split(':');
-        timesPlayed = int.Parse(played[1]);
+        if (File.Exists(BackendHandler.singleton.pathFile)) {
+            string[] data = File.ReadAllLines(BackendHandler.singleton.pathFile);
+            string[] score = data[0].Split(':');
+            currHighScore = int.Parse(score[1]);
+            string[] played = data[1].Split(':');
+            timesPlayed = int.Parse(played[1]);
+        } else
+        {
+            if (PlayerPrefs.HasKey("HighScore"))
+            {
+                currHighScore = PlayerPrefs.GetInt("HighScore");
+            } else
+            {
+                currHighScore = 0;
+            }
+
+            if (PlayerPrefs.HasKey("TimesPlayed"))
+            {
+                timesPlayed = PlayerPrefs.GetInt("TimesPlayed");
+            } else
+            {
+                timesPlayed = 0;
+            }
+        }
 
         finalScoreDisplay.sprite = scoreNumImg[BackendHandler.totalScore];
         timesPlayed++;
@@ -57,6 +76,9 @@ public class FinalPageHandler : MonoBehaviour
         StreamWriter writer = new StreamWriter(BackendHandler.singleton.pathFile, true);
         writer.WriteLine("High Score:" + currHighScore + "\nTimes Played:" + gamesPlayed.text);
         writer.Close();
+
+        PlayerPrefs.SetInt("HighScore", currHighScore);
+        PlayerPrefs.SetInt("TimesPlayed", int.Parse(gamesPlayed.text));
 
         finalPage.SetActive(true);
         thisAnim.enabled = true;
